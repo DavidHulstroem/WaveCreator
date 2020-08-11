@@ -116,13 +116,22 @@ namespace WaveCreator
             {
                 string text = System.IO.File.ReadAllText(file);
 
-                IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
-
-                if (!containerIds.Contains(idClass.id))
+                if (text.Contains("ThunderRoad."))
                 {
-                    containerIds.Add(idClass.id);
-                }
+                    try
+                    {
+                        IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
 
+                        if (!containerIds.Contains(idClass.id))
+                        {
+                            containerIds.Add(idClass.id);
+                        }
+                    } catch
+                    {
+                        MessageBox.Show("The file: " + file + " is either wrong or broken");
+                        continue;
+                    }
+                }
 
             }
 
@@ -133,12 +142,22 @@ namespace WaveCreator
             {
                 string text = System.IO.File.ReadAllText(file);
 
-                IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
-
-                if (!brainIds.Contains(idClass.id))
+                if (text.Contains("ThunderRoad."))
                 {
-                    brainIds.Add(idClass.id);
-                }
+                    try
+                    {
+                        IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
+
+                        if (!brainIds.Contains(idClass.id))
+                        {
+                            brainIds.Add(idClass.id);
+                        }
+                    } catch
+                    {
+                        MessageBox.Show("The file: " + file + " is either wrong or broken");
+                        continue;
+                    }
+                }  
             }
 
 
@@ -149,12 +168,22 @@ namespace WaveCreator
             {
                 string text = System.IO.File.ReadAllText(file);
 
-                IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
-
-                if (!creatureTableIds.Contains(idClass.id))
+                if (text.Contains("ThunderRoad."))
                 {
-                    creatureTableIds.Add(idClass.id);
-                }
+                    try
+                    {
+                        IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
+
+                        if (!creatureTableIds.Contains(idClass.id))
+                        {
+                            creatureTableIds.Add(idClass.id);
+                        }
+                    } catch
+                    {
+                        MessageBox.Show("The file: " + file + " is either wrong or broken");
+                        continue;
+                    }
+                }  
             }
 
             //Find all map ids
@@ -164,12 +193,22 @@ namespace WaveCreator
             {
                 string text = System.IO.File.ReadAllText(file);
 
-                IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
-
-                if (!mapIds.Contains(idClass.id) && idClass.id != "Master" && text.Contains("LevelModuleWave"))
+                if (text.Contains("ThunderRoad."))
                 {
-                    mapIds.Add(idClass.id);
-                }
+                    try
+                    {
+                        IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
+
+                        if (!mapIds.Contains(idClass.id) && idClass.id != "Master" && text.Contains("LevelModuleWave"))
+                        {
+                            mapIds.Add(idClass.id);
+                        }
+                    } catch
+                    {
+                        MessageBox.Show("The file: " + file + " is either wrong or broken");
+                        continue;
+                    }
+                }   
             }
 
             ContainerDD.DataSource = containerIds;
@@ -225,30 +264,33 @@ namespace WaveCreator
 
             //show table
             //Set values
+            if (selectedGroup != null)
+            {
+                BrainOverride.Checked = selectedGroup.overrideBrain;
+                BrainDD.SelectedIndex = brainIds.FindIndex(x => x == selectedGroup.overrideBrainID);
 
-            BrainOverride.Checked = selectedGroup.overrideBrain;
-            BrainDD.SelectedIndex = brainIds.FindIndex(x => x == selectedGroup.overrideBrainID);
+                ContainerOverride.Checked = selectedGroup.overrideContainer;
+                ContainerDD.SelectedIndex = containerIds.FindIndex(x => x == selectedGroup.overrideContainerID);
 
-            ContainerOverride.Checked = selectedGroup.overrideContainer;
-            ContainerDD.SelectedIndex = containerIds.FindIndex(x => x == selectedGroup.overrideContainerID);
+                CreatureDD.SelectedIndex = creatureTableIds.FindIndex(x => x == selectedGroup.referenceID);
 
-            CreatureDD.SelectedIndex = creatureTableIds.FindIndex(x => x == selectedGroup.referenceID);
+                FactionOverride.Checked = selectedGroup.overrideFaction;
+                FactionID.Value = selectedGroup.factionID;
 
-            FactionOverride.Checked = selectedGroup.overrideFaction;
-            FactionID.Value = selectedGroup.factionID;
+                MaxMeleeOverride.Checked = selectedGroup.overrideMaxMelee;
+                MaxMeleeCount.Value = selectedGroup.overrideMaxMeleeCount;
 
-            MaxMeleeOverride.Checked = selectedGroup.overrideMaxMelee;
-            MaxMeleeCount.Value = selectedGroup.overrideMaxMeleeCount;
+                MinMaxMin.Value = selectedGroup.minMaxCount.x;
+                MinMaxMax.Value = selectedGroup.minMaxCount.y;
 
-            MinMaxMin.Value = selectedGroup.minMaxCount.x;
-            MinMaxMax.Value = selectedGroup.minMaxCount.y;
+                spawnPointIndex.Value = selectedGroup.spawnPointIndex;
+                conditionStepIndex.Value = selectedGroup.conditionStepIndex;
+                conditionStepThreshold.Value = selectedGroup.conditionThreshold;
 
-            spawnPointIndex.Value = selectedGroup.spawnPointIndex;
-            conditionStepIndex.Value = selectedGroup.conditionStepIndex;
-            conditionStepThreshold.Value = selectedGroup.conditionThreshold;
+                tableLayoutPanel3.Visible = true;
+            }
 
-
-            tableLayoutPanel3.Visible = true;
+            
         }
 
         private void UpdateGroupInfo()

@@ -65,48 +65,58 @@ namespace WaveCreator
             {
                 string text = System.IO.File.ReadAllText(file);
 
-                IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
-
-                if (file.Contains("LootTable_"))
+                if (text.Contains("ThunderRoad."))
                 {
-                    if (!LootTables.Contains(idClass.id))
+                    try
                     {
-                        LootTables.Add(idClass.id);
+                        IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
+
+                        if (file.Contains("LootTable_"))
+                        {
+                            if (!LootTables.Contains(idClass.id))
+                            {
+                                LootTables.Add(idClass.id);
+                            }
+                        }
+
+                        if (file.Contains("Item_Apparel_"))
+                        {
+                            if (!Apparels.Contains(idClass.id))
+                            {
+                                Apparels.Add(idClass.id);
+                            }
+                        }
+
+                        if (file.Contains("Item_Weapon_"))
+                        {
+                            if (!Weapons.Contains(idClass.id))
+                            {
+                                Weapons.Add(idClass.id);
+                            }
+                        }
+
+                        if (file.Contains("Item_Shield_"))
+                        {
+                            if (!Shields.Contains(idClass.id))
+                            {
+                                Shields.Add(idClass.id);
+                            }
+                        }
+
+                        if (file.Contains("Item_Spell_"))
+                        {
+                            if (!Spells.Contains(idClass.id))
+                            {
+                                Spells.Add(idClass.id);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("The file: " + file + " is either wrong or broken");
+                        continue;
                     }
                 }
-
-                if (file.Contains("Item_Apparel_"))
-                {
-                    if (!Apparels.Contains(idClass.id))
-                    {
-                        Apparels.Add(idClass.id);
-                    }
-                }
-
-                if (file.Contains("Item_Weapon_"))
-                {
-                    if (!Weapons.Contains(idClass.id))
-                    {
-                        Weapons.Add(idClass.id);
-                    }
-                }
-
-                if (file.Contains("Item_Shield_"))
-                {
-                    if (!Shields.Contains(idClass.id))
-                    {
-                        Shields.Add(idClass.id);
-                    }
-                }
-
-                if (file.Contains("Item_Spell_"))
-                {
-                    if (!Spells.Contains(idClass.id))
-                    {
-                        Spells.Add(idClass.id);
-                    }
-                }
-
 
             }
 
@@ -131,6 +141,8 @@ namespace WaveCreator
             if (ContentList.SelectedIndex != -1) 
                 selectedContent = contents[ContentList.SelectedIndex];
 
+            if (selectedContent == null)
+                return;
 
             int index = 0;
 
@@ -291,6 +303,10 @@ namespace WaveCreator
         private void CategoryDD_SelectedIndexChanged(object sender, EventArgs e)
         {
             int referenceint = 1;
+
+            if (selectedContent == null)
+                return;
+
             if (CategoryDD.SelectedIndex == 0)
             {
                 selectedReference = LootTables;

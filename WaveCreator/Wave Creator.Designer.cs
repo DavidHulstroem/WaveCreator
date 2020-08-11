@@ -582,15 +582,15 @@
             // 
             // PlayerHealthInput
             // 
-            this.PlayerHealthInput.DecimalPlaces = 1;
+            this.PlayerHealthInput.DecimalPlaces = 2;
             this.PlayerHealthInput.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.PlayerHealthInput.Location = new System.Drawing.Point(364, 119);
             this.PlayerHealthInput.Name = "PlayerHealthInput";
-            this.PlayerHealthInput.Size = new System.Drawing.Size(36, 20);
+            this.PlayerHealthInput.Size = new System.Drawing.Size(53, 20);
             this.PlayerHealthInput.TabIndex = 7;
             this.PlayerHealthInput.Value = new decimal(new int[] {
             1,
@@ -612,15 +612,15 @@
             // 
             // EnemiesHealthInput
             // 
-            this.EnemiesHealthInput.DecimalPlaces = 1;
+            this.EnemiesHealthInput.DecimalPlaces = 2;
             this.EnemiesHealthInput.Increment = new decimal(new int[] {
             1,
             0,
             0,
-            65536});
+            131072});
             this.EnemiesHealthInput.Location = new System.Drawing.Point(364, 151);
             this.EnemiesHealthInput.Name = "EnemiesHealthInput";
-            this.EnemiesHealthInput.Size = new System.Drawing.Size(36, 20);
+            this.EnemiesHealthInput.Size = new System.Drawing.Size(53, 20);
             this.EnemiesHealthInput.TabIndex = 8;
             this.EnemiesHealthInput.Value = new decimal(new int[] {
             1,
