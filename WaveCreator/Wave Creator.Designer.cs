@@ -38,7 +38,9 @@
             this.NewGroup = new System.Windows.Forms.Button();
             this.ContainerDD = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.FactionID = new System.Windows.Forms.NumericUpDown();
+            this.factionDesc = new System.Windows.Forms.ComboBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.FactionOverride = new System.Windows.Forms.CheckBox();
@@ -100,9 +102,8 @@
             this.RemoveGroup = new System.Windows.Forms.Button();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.factionDesc = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FactionID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxMeleeCount)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -118,7 +119,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnPointIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // FileBTN
@@ -230,6 +230,21 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 175);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.94937F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.05064F));
+            this.tableLayoutPanel6.Controls.Add(this.FactionID, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.factionDesc, 1, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(132, 100);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(158, 27);
+            this.tableLayoutPanel6.TabIndex = 44;
+            // 
             // FactionID
             // 
             this.FactionID.Location = new System.Drawing.Point(3, 3);
@@ -247,6 +262,26 @@
             this.FactionID.Size = new System.Drawing.Size(35, 20);
             this.FactionID.TabIndex = 6;
             this.FactionID.ValueChanged += new System.EventHandler(this.FactionID_ValueChanged);
+            // 
+            // factionDesc
+            // 
+            this.factionDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.factionDesc.Enabled = false;
+            this.factionDesc.FormattingEnabled = true;
+            this.factionDesc.Items.AddRange(new object[] {
+            "Passive",
+            "None",
+            "Ignore",
+            "Player",
+            "Bandits",
+            "Cult",
+            "Mercenary"});
+            this.factionDesc.Location = new System.Drawing.Point(44, 3);
+            this.factionDesc.Name = "factionDesc";
+            this.factionDesc.Size = new System.Drawing.Size(111, 21);
+            this.factionDesc.TabIndex = 7;
+            this.factionDesc.TabStop = false;
+            this.factionDesc.SelectedIndexChanged += new System.EventHandler(this.factionDesc_SelectedIndexChanged);
             // 
             // textBox5
             // 
@@ -331,7 +366,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.05195F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.94805F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel2.Controls.Add(this.textBox16, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox15, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.MinMaxMax, 3, 0);
@@ -350,7 +385,7 @@
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Enabled = false;
             this.textBox16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox16.Location = new System.Drawing.Point(66, 3);
+            this.textBox16.Location = new System.Drawing.Point(64, 3);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(31, 13);
@@ -366,14 +401,14 @@
             this.textBox15.Location = new System.Drawing.Point(3, 3);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(24, 13);
+            this.textBox15.Size = new System.Drawing.Size(23, 13);
             this.textBox15.TabIndex = 0;
             this.textBox15.Text = "Min";
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MinMaxMax
             // 
-            this.MinMaxMax.Location = new System.Drawing.Point(105, 3);
+            this.MinMaxMax.Location = new System.Drawing.Point(103, 3);
             this.MinMaxMax.Minimum = new decimal(new int[] {
             1,
             0,
@@ -390,14 +425,14 @@
             // 
             // MinMaxMin
             // 
-            this.MinMaxMin.Location = new System.Drawing.Point(33, 3);
+            this.MinMaxMin.Location = new System.Drawing.Point(32, 3);
             this.MinMaxMin.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.MinMaxMin.Name = "MinMaxMin";
-            this.MinMaxMin.Size = new System.Drawing.Size(27, 20);
+            this.MinMaxMin.Size = new System.Drawing.Size(26, 20);
             this.MinMaxMin.TabIndex = 30;
             this.MinMaxMin.Value = new decimal(new int[] {
             1,
@@ -953,41 +988,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.94937F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.05064F));
-            this.tableLayoutPanel6.Controls.Add(this.FactionID, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.factionDesc, 1, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(132, 100);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(158, 27);
-            this.tableLayoutPanel6.TabIndex = 44;
-            // 
-            // factionDesc
-            // 
-            this.factionDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.factionDesc.Enabled = false;
-            this.factionDesc.FormattingEnabled = true;
-            this.factionDesc.Items.AddRange(new object[] {
-            "Passive",
-            "None",
-            "Ignore",
-            "Player",
-            "Bandits",
-            "Cult",
-            "Mercenary"});
-            this.factionDesc.Location = new System.Drawing.Point(44, 3);
-            this.factionDesc.Name = "factionDesc";
-            this.factionDesc.Size = new System.Drawing.Size(111, 21);
-            this.factionDesc.TabIndex = 7;
-            this.factionDesc.TabStop = false;
-            this.factionDesc.SelectedIndexChanged += new System.EventHandler(this.factionDesc_SelectedIndexChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1034,6 +1034,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FactionID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxMeleeCount)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1051,7 +1052,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnPointIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

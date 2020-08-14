@@ -338,10 +338,35 @@ namespace WaveCreator
             //Generate JSON
             WaveData waveDataJson = new WaveData();
 
+            ErrorProvider error = new ErrorProvider(this);
+
             waveDataJson.type = "ThunderRoad.WaveData, Assembly-CSharp";
+
+            if (WaveIdInput.Text == "")
+            {
+                SetErrorFunc(error, WaveIdInput, "Id can't be empty");
+                return;
+            }
             waveDataJson.id = WaveIdInput.Text;
 
+
+            if (CategoryInput.Text == "")
+            {
+                SetErrorFunc(error, CategoryInput, "Category can't be empty");
+                return;
+            }
+            if (!CategoryInput.Text.Any(char.IsDigit))
+            {
+                SetErrorFunc(error, CategoryInput, "Categories must start with a number");
+                return;
+            }
             waveDataJson.category = CategoryInput.Text;
+
+            if (TitleInput.Text == "")
+            {
+                SetErrorFunc(error, TitleInput, "Title can't be empty");
+                return;
+            }
             waveDataJson.title = TitleInput.Text;
             waveDataJson.description = DescriptionInput.Text;
             waveDataJson.loop = LoopInput.Checked;
@@ -366,6 +391,12 @@ namespace WaveCreator
 
 
 
+        }
+
+        private void SetErrorFunc(ErrorProvider error, Control control, string errorText)
+        {
+            error.SetError(control, errorText);
+            Task.Delay(5000).ContinueWith(t => error.Clear());
         }
 
         private void NewWaveSelector_Click(object sender, EventArgs e)
@@ -410,34 +441,40 @@ namespace WaveCreator
             {
                 string raw = System.IO.File.ReadAllText(openFileDialog1.FileName);
 
-                WaveData readJson = JsonConvert.DeserializeObject<WaveData>(raw);
-
-                WaveIdInput.Text = readJson.id;
-                TitleInput.Text = readJson.title;
-                CategoryInput.Text = readJson.category;
-                DescriptionInput.Text = readJson.description;
-                LoopInput.Checked = readJson.loop;
-                AlwaysAvailableInput.Checked = readJson.alwaysAvailable;
-                MaxAliveInput.Value = readJson.maxAlive;
-                PlayerHealthInput.Value = (decimal)readJson.playerHealthMultiplier;
-                EnemiesHealthInput.Value = (decimal)readJson.enemiesHealthMultiplier;
-
-
-                WaveSelectorsInput.Items.Clear();
-
-                foreach (string waveSelector in readJson.waveSelectors)
+                if (raw.Contains("\"$type\": \"ThunderRoad.WaveData, Assembly-CSharp\""))
                 {
-                    WaveSelectorsInput.Items.Add(waveSelector);
-                    WaveSelectorsInput.SetItemChecked(WaveSelectorsInput.Items.Count - 1, true);
-                }
+                    WaveData readJson = JsonConvert.DeserializeObject<WaveData>(raw);
 
-                groups.Clear();
-                GroupList.Items.Clear();
+                    WaveIdInput.Text = readJson.id;
+                    TitleInput.Text = readJson.title;
+                    CategoryInput.Text = readJson.category;
+                    DescriptionInput.Text = readJson.description;
+                    LoopInput.Checked = readJson.loop;
+                    AlwaysAvailableInput.Checked = readJson.alwaysAvailable;
+                    MaxAliveInput.Value = readJson.maxAlive;
+                    PlayerHealthInput.Value = (decimal)readJson.playerHealthMultiplier;
+                    EnemiesHealthInput.Value = (decimal)readJson.enemiesHealthMultiplier;
 
-                foreach (Group group in readJson.groups)
+
+                    WaveSelectorsInput.Items.Clear();
+
+                    foreach (string waveSelector in readJson.waveSelectors)
+                    {
+                        WaveSelectorsInput.Items.Add(waveSelector);
+                        WaveSelectorsInput.SetItemChecked(WaveSelectorsInput.Items.Count - 1, true);
+                    }
+
+                    groups.Clear();
+                    GroupList.Items.Clear();
+
+                    foreach (Group group in readJson.groups)
+                    {
+                        groups.Add(group);
+                        GroupList.Items.Add(GroupList.Items.Count);
+                    }
+                } else
                 {
-                    groups.Add(group);
-                    GroupList.Items.Add(GroupList.Items.Count);
+                    MessageBox.Show("Selected file is not a Wave json");
                 }
             }
         }

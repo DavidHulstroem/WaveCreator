@@ -283,19 +283,25 @@ namespace WaveCreator
             {
                 string raw = System.IO.File.ReadAllText(openFileDialog1.FileName);
 
-                Container readJson = JsonConvert.DeserializeObject<Container>(raw);
-
-                ContainerIdInput.Text = readJson.id;
-                DisplayNameInput.Text = readJson.displayName;
-                DescriptionInput.Text = readJson.description;
-
-                ContentList.Items.Clear();
-                contents.Clear();
-
-                foreach (Content content in readJson.content)
+                if (raw.Contains("\"$type\": \"ThunderRoad.ContainerData, Assembly - CSharp\""))
                 {
-                    contents.Add(content);
-                    ContentList.Items.Add(ContentList.Items.Count);
+                    Container readJson = JsonConvert.DeserializeObject<Container>(raw);
+
+                    ContainerIdInput.Text = readJson.id;
+                    DisplayNameInput.Text = readJson.displayName;
+                    DescriptionInput.Text = readJson.description;
+
+                    ContentList.Items.Clear();
+                    contents.Clear();
+
+                    foreach (Content content in readJson.content)
+                    {
+                        contents.Add(content);
+                        ContentList.Items.Add(ContentList.Items.Count);
+                    }
+                }else
+                {
+                    MessageBox.Show("Selected file is not a Container json");
                 }
             }
         }
