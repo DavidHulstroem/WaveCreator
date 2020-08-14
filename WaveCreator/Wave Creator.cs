@@ -393,7 +393,7 @@ namespace WaveCreator
 
         }
 
-        private void SetErrorFunc(ErrorProvider error, Control control, string errorText)
+        public static void SetErrorFunc(ErrorProvider error, Control control, string errorText)
         {
             error.SetError(control, errorText);
             Task.Delay(5000).ContinueWith(t => error.Clear());

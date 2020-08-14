@@ -349,12 +349,21 @@ namespace WaveCreator
                 return;
             }
 
+            ErrorProvider error = new ErrorProvider(this);
+
             //Generate JSON
             Container containerJson = new Container();
 
             containerJson.type = "ThunderRoad.ContainerData, Assembly-CSharp";
 
+            if (ContainerIdInput.Text == "")
+            {
+                Form1.SetErrorFunc(error, ContainerIdInput, "Id can't be empty");
+                return;
+            }
+
             containerJson.id = ContainerIdInput.Text;
+
             containerJson.displayName = DisplayNameInput.Text;
             containerJson.description = DescriptionInput.Text;
             containerJson.content = contents;
