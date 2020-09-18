@@ -283,7 +283,7 @@ namespace WaveCreator
             {
                 string raw = System.IO.File.ReadAllText(openFileDialog1.FileName);
 
-                if (raw.Contains("\"$type\": \"ThunderRoad.ContainerData, Assembly - CSharp\""))
+                if (raw.Contains("\"$type\": \"ThunderRoad.ContainerData, Assembly-CSharp\""))
                 {
                     Container readJson = JsonConvert.DeserializeObject<Container>(raw);
 

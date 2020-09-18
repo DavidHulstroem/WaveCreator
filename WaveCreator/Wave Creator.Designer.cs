@@ -366,7 +366,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.05195F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.94805F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel2.Controls.Add(this.textBox16, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox15, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.MinMaxMax, 3, 0);
@@ -385,7 +385,7 @@
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Enabled = false;
             this.textBox16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox16.Location = new System.Drawing.Point(64, 3);
+            this.textBox16.Location = new System.Drawing.Point(62, 3);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(31, 13);
@@ -401,14 +401,14 @@
             this.textBox15.Location = new System.Drawing.Point(3, 3);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(23, 13);
+            this.textBox15.Size = new System.Drawing.Size(22, 13);
             this.textBox15.TabIndex = 0;
             this.textBox15.Text = "Min";
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MinMaxMax
             // 
-            this.MinMaxMax.Location = new System.Drawing.Point(103, 3);
+            this.MinMaxMax.Location = new System.Drawing.Point(101, 3);
             this.MinMaxMax.Minimum = new decimal(new int[] {
             1,
             0,
@@ -425,14 +425,14 @@
             // 
             // MinMaxMin
             // 
-            this.MinMaxMin.Location = new System.Drawing.Point(32, 3);
+            this.MinMaxMin.Location = new System.Drawing.Point(31, 3);
             this.MinMaxMin.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.MinMaxMin.Name = "MinMaxMin";
-            this.MinMaxMin.Size = new System.Drawing.Size(26, 20);
+            this.MinMaxMin.Size = new System.Drawing.Size(25, 20);
             this.MinMaxMin.TabIndex = 30;
             this.MinMaxMin.Value = new decimal(new int[] {
             1,

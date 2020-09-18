@@ -52,7 +52,18 @@ namespace WaveCreator
                 StreaminAssetsTextBox.Text = data.gamePath;
             } else
             {
-                GetFileLocations();
+                bool gotFiles = GetFileLocations();
+
+                if (!gotFiles)
+                {
+                    Close();
+                    return;
+                } else
+                {
+                    Form1_Load(sender, e);
+                    return;
+                }
+
             }
 
             LoadAllAssets();
@@ -61,7 +72,7 @@ namespace WaveCreator
         }
 
 
-        private void GetFileLocations()
+        private bool GetFileLocations()
         {
             ProgramStoredData data = new ProgramStoredData();
 
@@ -83,7 +94,10 @@ namespace WaveCreator
 
                 SaveLoc.Text = data.savePath;
                 StreaminAssetsTextBox.Text = data.gamePath;
+
+                return true;
             }
+            return false;
         }
 
 
