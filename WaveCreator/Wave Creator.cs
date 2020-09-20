@@ -28,6 +28,7 @@ namespace WaveCreator
         public List<string> containerIds = new List<string>();
         public List<string> brainIds = new List<string>();
         public List<string> creatureTableIds = new List<string>();
+        public List<string> creatureIds = new List<string>();
         public List<string> mapIds = new List<string>();
 
         public Form1()
@@ -79,8 +80,8 @@ namespace WaveCreator
             FileLocations fileLocations = new FileLocations();
             if (fileLocations.ShowDialog() == DialogResult.OK)
             {
-                data.gamePath = fileLocations.StreamLocSt;
-                data.savePath = fileLocations.SaveLocSt;
+                data.gamePath = fileLocations.StreamLoc.Text;
+                data.savePath = fileLocations.SaveLoc.Text;
 
                 string strExeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 string strWorkPath = System.IO.Path.GetDirectoryName(strExeFilePath);
@@ -108,6 +109,7 @@ namespace WaveCreator
             brainIds.Clear();
             creatureTableIds.Clear();
             mapIds.Clear();
+            creatureIds.Clear();
 
 
 
@@ -200,6 +202,32 @@ namespace WaveCreator
                 }  
             }
 
+            //Find all creature 
+            string[] creatures = Directory.GetFiles(streamingAssetsDirectory, "Creature_*", SearchOption.AllDirectories);
+
+            foreach (string file in creatures)
+            {
+                string text = System.IO.File.ReadAllText(file);
+
+                if (text.Contains("ThunderRoad."))
+                {
+                    try
+                    {
+                        IdClass idClass = JsonConvert.DeserializeObject<IdClass>(text);
+
+                        if (!creatureIds.Contains(idClass.id))
+                        {
+                            creatureIds.Add(idClass.id);
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("The file: " + file + " is either wrong or broken");
+                        continue;
+                    }
+                }
+            }
+
             //Find all map ids
             string[] maps = Directory.GetFiles(streamingAssetsDirectory, "Level_*", SearchOption.AllDirectories);
 
@@ -286,7 +314,17 @@ namespace WaveCreator
                 ContainerOverride.Checked = selectedGroup.overrideContainer;
                 ContainerDD.SelectedIndex = containerIds.FindIndex(x => x == selectedGroup.overrideContainerID);
 
-                CreatureDD.SelectedIndex = creatureTableIds.FindIndex(x => x == selectedGroup.referenceID);
+                RefType.SelectedIndex = selectedGroup.reference;
+
+                if (RefType.SelectedIndex == 0)
+                {
+                    CreatureDD.DataSource = creatureIds;
+                    CreatureDD.SelectedIndex = creatureIds.FindIndex(x => x == selectedGroup.referenceID);
+                } else
+                {
+                    CreatureDD.DataSource = creatureTableIds;
+                    CreatureDD.SelectedIndex = creatureTableIds.FindIndex(x => x == selectedGroup.referenceID);
+                }
 
                 FactionOverride.Checked = selectedGroup.overrideFaction;
                 FactionID.Value = selectedGroup.factionID;
@@ -317,7 +355,16 @@ namespace WaveCreator
                 selectedGroup.overrideContainer = ContainerOverride.Checked;
                 selectedGroup.overrideContainerID = containerIds[ContainerDD.SelectedIndex];
 
-                selectedGroup.referenceID = creatureTableIds[CreatureDD.SelectedIndex];
+                selectedGroup.reference = RefType.SelectedIndex;
+
+                if (selectedGroup.reference == 0)
+                {
+                    selectedGroup.referenceID = creatureIds[CreatureDD.SelectedIndex];
+                } else
+                {
+                    selectedGroup.referenceID = creatureTableIds[CreatureDD.SelectedIndex];
+                }
+                
 
                 selectedGroup.overrideFaction = FactionOverride.Checked;
                 selectedGroup.factionID = (int)FactionID.Value;
@@ -531,7 +578,47 @@ namespace WaveCreator
 
         private void FactionID_ValueChanged(object sender, EventArgs e)
         {
-            factionDesc.SelectedIndex = (int)FactionID.Value + 1;
+            if ((int)FactionID.Value < factionDesc.Items.Count - 1)
+            {
+                factionDesc.SelectedIndex = (int)FactionID.Value + 1;
+            } else
+            {
+                factionDesc.Text = "Custom Faction";
+            }
+        }
+
+        private void OnCopyGroup(object sender, EventArgs e)
+        {
+            if (GroupList.SelectedIndex != -1)
+            {
+                Group copyingGroup = groups[GroupList.SelectedIndex];
+
+                var serialized = JsonConvert.SerializeObject(copyingGroup);
+                Group copyedgGroup = JsonConvert.DeserializeObject<Group>(serialized);
+
+                
+
+                groups.Add(copyedgGroup);
+
+                GroupList.Items.Add(GroupList.Items.Count);
+            }
+        }
+
+        private void RefType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RefType.SelectedIndex == 0)
+            {
+                CreatureDD.DataSource = creatureIds;
+            }
+            else
+            {
+                CreatureDD.DataSource = creatureTableIds;
+            }
+        }
+
+        private void OnWikiClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/DavidHulstroem/WaveCreator/wiki/Wave-Values");
         }
     }
 

@@ -38,6 +38,9 @@
             this.NewGroup = new System.Windows.Forms.Button();
             this.ContainerDD = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.RefType = new System.Windows.Forms.ComboBox();
+            this.CreatureDD = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.FactionID = new System.Windows.Forms.NumericUpDown();
             this.factionDesc = new System.Windows.Forms.ComboBox();
@@ -58,7 +61,6 @@
             this.BrainOverride = new System.Windows.Forms.CheckBox();
             this.ContainerOverride = new System.Windows.Forms.CheckBox();
             this.BrainDD = new System.Windows.Forms.ComboBox();
-            this.CreatureDD = new System.Windows.Forms.ComboBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.SaveGroup = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -102,7 +104,12 @@
             this.RemoveGroup = new System.Windows.Forms.Button();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FactionID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxMeleeCount)).BeginInit();
@@ -119,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnPointIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // FileBTN
@@ -156,16 +164,17 @@
             // 
             // WaveIdInput
             // 
-            this.WaveIdInput.Location = new System.Drawing.Point(13, 31);
+            this.WaveIdInput.Location = new System.Drawing.Point(8, 50);
             this.WaveIdInput.Name = "WaveIdInput";
             this.WaveIdInput.Size = new System.Drawing.Size(100, 20);
             this.WaveIdInput.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.WaveIdInput, "Must have unique value");
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(13, 12);
+            this.textBox3.Location = new System.Drawing.Point(8, 31);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(139, 13);
@@ -181,23 +190,27 @@
             this.NewGroup.TabIndex = 12;
             this.NewGroup.TabStop = false;
             this.NewGroup.Text = "New";
+            this.toolTip1.SetToolTip(this.NewGroup, "Create new group");
             this.NewGroup.UseVisualStyleBackColor = true;
             this.NewGroup.Click += new System.EventHandler(this.button1_Click);
             // 
             // ContainerDD
             // 
             this.ContainerDD.FormattingEnabled = true;
-            this.ContainerDD.Location = new System.Drawing.Point(135, 53);
+            this.ContainerDD.Location = new System.Drawing.Point(141, 59);
             this.ContainerDD.Name = "ContainerDD";
-            this.ContainerDD.Size = new System.Drawing.Size(152, 21);
+            this.ContainerDD.Size = new System.Drawing.Size(144, 21);
             this.ContainerDD.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.ContainerDD, "The enemy\'s loadout");
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox12, 0, 4);
@@ -213,13 +226,12 @@
             this.tableLayoutPanel1.Controls.Add(this.ContainerOverride, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.BrainDD, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.ContainerDD, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.CreatureDD, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox7, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
@@ -227,8 +239,45 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 174F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 175);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(349, 193);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
+            this.tableLayoutPanel7.Controls.Add(this.RefType, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.CreatureDD, 1, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(141, 26);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(200, 25);
+            this.tableLayoutPanel7.TabIndex = 45;
+            // 
+            // RefType
+            // 
+            this.RefType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RefType.FormattingEnabled = true;
+            this.RefType.Items.AddRange(new object[] {
+            "Creature",
+            "Table"});
+            this.RefType.Location = new System.Drawing.Point(3, 3);
+            this.RefType.Name = "RefType";
+            this.RefType.Size = new System.Drawing.Size(69, 21);
+            this.RefType.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.RefType, "Type of reference");
+            this.RefType.SelectedIndexChanged += new System.EventHandler(this.RefType_SelectedIndexChanged);
+            // 
+            // CreatureDD
+            // 
+            this.CreatureDD.DropDownWidth = 300;
+            this.CreatureDD.FormattingEnabled = true;
+            this.CreatureDD.Location = new System.Drawing.Point(78, 3);
+            this.CreatureDD.Name = "CreatureDD";
+            this.CreatureDD.Size = new System.Drawing.Size(119, 21);
+            this.CreatureDD.TabIndex = 0;
             // 
             // tableLayoutPanel6
             // 
@@ -237,19 +286,19 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.05064F));
             this.tableLayoutPanel6.Controls.Add(this.FactionID, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.factionDesc, 1, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(132, 100);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(138, 110);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(158, 27);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(183, 27);
             this.tableLayoutPanel6.TabIndex = 44;
             // 
             // FactionID
             // 
             this.FactionID.Location = new System.Drawing.Point(3, 3);
             this.FactionID.Maximum = new decimal(new int[] {
-            5,
+            1000,
             0,
             0,
             0});
@@ -261,6 +310,7 @@
             this.FactionID.Name = "FactionID";
             this.FactionID.Size = new System.Drawing.Size(35, 20);
             this.FactionID.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.FactionID, "Enemy\'s team (0 is normally what you want)");
             this.FactionID.ValueChanged += new System.EventHandler(this.FactionID_ValueChanged);
             // 
             // factionDesc
@@ -276,9 +326,9 @@
             "Bandits",
             "Cult",
             "Mercenary"});
-            this.factionDesc.Location = new System.Drawing.Point(44, 3);
+            this.factionDesc.Location = new System.Drawing.Point(50, 3);
             this.factionDesc.Name = "factionDesc";
-            this.factionDesc.Size = new System.Drawing.Size(111, 21);
+            this.factionDesc.Size = new System.Drawing.Size(130, 21);
             this.factionDesc.TabIndex = 7;
             this.factionDesc.TabStop = false;
             this.factionDesc.SelectedIndexChanged += new System.EventHandler(this.factionDesc_SelectedIndexChanged);
@@ -287,10 +337,10 @@
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(80, 3);
+            this.textBox5.Location = new System.Drawing.Point(90, 5);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(45, 13);
+            this.textBox5.Size = new System.Drawing.Size(43, 13);
             this.textBox5.TabIndex = 5;
             this.textBox5.Text = "Override";
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
@@ -299,7 +349,7 @@
             // 
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(3, 103);
+            this.textBox12.Location = new System.Drawing.Point(5, 113);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(67, 13);
@@ -311,7 +361,7 @@
             // 
             this.FactionOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.FactionOverride.AutoSize = true;
-            this.FactionOverride.Location = new System.Drawing.Point(97, 103);
+            this.FactionOverride.Location = new System.Drawing.Point(104, 113);
             this.FactionOverride.Name = "FactionOverride";
             this.FactionOverride.Size = new System.Drawing.Size(15, 14);
             this.FactionOverride.TabIndex = 5;
@@ -322,7 +372,7 @@
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Enabled = false;
             this.textBox13.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox13.Location = new System.Drawing.Point(3, 130);
+            this.textBox13.Location = new System.Drawing.Point(5, 142);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(67, 13);
@@ -334,7 +384,7 @@
             // 
             this.MaxMeleeOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MaxMeleeOverride.AutoSize = true;
-            this.MaxMeleeOverride.Location = new System.Drawing.Point(97, 130);
+            this.MaxMeleeOverride.Location = new System.Drawing.Point(104, 142);
             this.MaxMeleeOverride.Name = "MaxMeleeOverride";
             this.MaxMeleeOverride.Size = new System.Drawing.Size(15, 14);
             this.MaxMeleeOverride.TabIndex = 7;
@@ -342,7 +392,7 @@
             // 
             // MaxMeleeCount
             // 
-            this.MaxMeleeCount.Location = new System.Drawing.Point(135, 130);
+            this.MaxMeleeCount.Location = new System.Drawing.Point(141, 142);
             this.MaxMeleeCount.Name = "MaxMeleeCount";
             this.MaxMeleeCount.Size = new System.Drawing.Size(35, 20);
             this.MaxMeleeCount.TabIndex = 8;
@@ -352,7 +402,7 @@
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox14.Enabled = false;
             this.textBox14.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox14.Location = new System.Drawing.Point(3, 153);
+            this.textBox14.Location = new System.Drawing.Point(5, 167);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(67, 13);
@@ -366,18 +416,17 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.05195F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.94805F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel2.Controls.Add(this.textBox16, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox15, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.MinMaxMax, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.MinMaxMin, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(132, 150);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(138, 164);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(158, 34);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(158, 26);
             this.tableLayoutPanel2.TabIndex = 29;
             // 
             // textBox16
@@ -385,7 +434,7 @@
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Enabled = false;
             this.textBox16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox16.Location = new System.Drawing.Point(62, 3);
+            this.textBox16.Location = new System.Drawing.Point(75, 3);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(31, 13);
@@ -401,22 +450,23 @@
             this.textBox15.Location = new System.Drawing.Point(3, 3);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(22, 13);
+            this.textBox15.Size = new System.Drawing.Size(21, 13);
             this.textBox15.TabIndex = 0;
             this.textBox15.Text = "Min";
             this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MinMaxMax
             // 
-            this.MinMaxMax.Location = new System.Drawing.Point(101, 3);
+            this.MinMaxMax.Location = new System.Drawing.Point(114, 3);
             this.MinMaxMax.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.MinMaxMax.Name = "MinMaxMax";
-            this.MinMaxMax.Size = new System.Drawing.Size(35, 20);
+            this.MinMaxMax.Size = new System.Drawing.Size(32, 20);
             this.MinMaxMax.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.MinMaxMax, "Max amount of enemies that can spawn");
             this.MinMaxMax.Value = new decimal(new int[] {
             1,
             0,
@@ -425,15 +475,16 @@
             // 
             // MinMaxMin
             // 
-            this.MinMaxMin.Location = new System.Drawing.Point(31, 3);
+            this.MinMaxMin.Location = new System.Drawing.Point(38, 3);
             this.MinMaxMin.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.MinMaxMin.Name = "MinMaxMin";
-            this.MinMaxMin.Size = new System.Drawing.Size(25, 20);
+            this.MinMaxMin.Size = new System.Drawing.Size(31, 20);
             this.MinMaxMin.TabIndex = 30;
+            this.toolTip1.SetToolTip(this.MinMaxMin, "Min amount of enemies that can spawn");
             this.MinMaxMin.Value = new decimal(new int[] {
             1,
             0,
@@ -444,7 +495,7 @@
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(3, 78);
+            this.textBox6.Location = new System.Drawing.Point(5, 86);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(63, 13);
@@ -456,7 +507,7 @@
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(3, 53);
+            this.textBox4.Location = new System.Drawing.Point(5, 59);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(63, 13);
@@ -468,7 +519,7 @@
             // 
             this.BrainOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BrainOverride.AutoSize = true;
-            this.BrainOverride.Location = new System.Drawing.Point(97, 78);
+            this.BrainOverride.Location = new System.Drawing.Point(104, 86);
             this.BrainOverride.Name = "BrainOverride";
             this.BrainOverride.Size = new System.Drawing.Size(15, 14);
             this.BrainOverride.TabIndex = 3;
@@ -478,7 +529,7 @@
             // 
             this.ContainerOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ContainerOverride.AutoSize = true;
-            this.ContainerOverride.Location = new System.Drawing.Point(97, 53);
+            this.ContainerOverride.Location = new System.Drawing.Point(104, 59);
             this.ContainerOverride.Name = "ContainerOverride";
             this.ContainerOverride.Size = new System.Drawing.Size(15, 14);
             this.ContainerOverride.TabIndex = 1;
@@ -487,30 +538,23 @@
             // BrainDD
             // 
             this.BrainDD.FormattingEnabled = true;
-            this.BrainDD.Location = new System.Drawing.Point(135, 78);
+            this.BrainDD.Location = new System.Drawing.Point(141, 86);
             this.BrainDD.Name = "BrainDD";
-            this.BrainDD.Size = new System.Drawing.Size(152, 21);
+            this.BrainDD.Size = new System.Drawing.Size(144, 21);
             this.BrainDD.TabIndex = 4;
-            // 
-            // CreatureDD
-            // 
-            this.CreatureDD.FormattingEnabled = true;
-            this.CreatureDD.Location = new System.Drawing.Point(135, 28);
-            this.CreatureDD.Name = "CreatureDD";
-            this.CreatureDD.Size = new System.Drawing.Size(152, 21);
-            this.CreatureDD.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.BrainDD, "Enemy\'s behaviour");
             // 
             // textBox7
             // 
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(3, 28);
+            this.textBox7.Location = new System.Drawing.Point(5, 26);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(67, 13);
             this.textBox7.TabIndex = 4;
             this.textBox7.TabStop = false;
-            this.textBox7.Text = "CreatureTable";
+            this.textBox7.Text = "ReferenceID";
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // SaveGroup
@@ -527,7 +571,7 @@
             // 
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(13, 57);
+            this.textBox8.Location = new System.Drawing.Point(8, 76);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(139, 13);
@@ -537,16 +581,17 @@
             // 
             // TitleInput
             // 
-            this.TitleInput.Location = new System.Drawing.Point(13, 76);
+            this.TitleInput.Location = new System.Drawing.Point(8, 95);
             this.TitleInput.Name = "TitleInput";
             this.TitleInput.Size = new System.Drawing.Size(100, 20);
             this.TitleInput.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.TitleInput, "Name of wave");
             // 
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(129, 12);
+            this.textBox2.Location = new System.Drawing.Point(124, 31);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(139, 13);
@@ -556,7 +601,7 @@
             // 
             // DescriptionInput
             // 
-            this.DescriptionInput.Location = new System.Drawing.Point(129, 31);
+            this.DescriptionInput.Location = new System.Drawing.Point(124, 50);
             this.DescriptionInput.Name = "DescriptionInput";
             this.DescriptionInput.Size = new System.Drawing.Size(169, 65);
             this.DescriptionInput.TabIndex = 3;
@@ -566,7 +611,7 @@
             // 
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(13, 102);
+            this.textBox9.Location = new System.Drawing.Point(8, 121);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(139, 13);
@@ -576,26 +621,28 @@
             // 
             // CategoryInput
             // 
-            this.CategoryInput.Location = new System.Drawing.Point(13, 121);
+            this.CategoryInput.Location = new System.Drawing.Point(8, 140);
             this.CategoryInput.Name = "CategoryInput";
             this.CategoryInput.Size = new System.Drawing.Size(100, 20);
             this.CategoryInput.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.CategoryInput, "Must start with number");
             // 
             // LoopInput
             // 
             this.LoopInput.AutoSize = true;
-            this.LoopInput.Location = new System.Drawing.Point(314, 11);
+            this.LoopInput.Location = new System.Drawing.Point(309, 30);
             this.LoopInput.Name = "LoopInput";
             this.LoopInput.Size = new System.Drawing.Size(50, 17);
             this.LoopInput.TabIndex = 4;
             this.LoopInput.Text = "Loop";
+            this.toolTip1.SetToolTip(this.LoopInput, "Check to never end wave");
             this.LoopInput.UseVisualStyleBackColor = true;
             // 
             // rwadwa
             // 
             this.rwadwa.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rwadwa.Enabled = false;
-            this.rwadwa.Location = new System.Drawing.Point(315, 78);
+            this.rwadwa.Location = new System.Drawing.Point(310, 97);
             this.rwadwa.Name = "rwadwa";
             this.rwadwa.ReadOnly = true;
             this.rwadwa.Size = new System.Drawing.Size(139, 13);
@@ -605,7 +652,7 @@
             // 
             // MaxAliveInput
             // 
-            this.MaxAliveInput.Location = new System.Drawing.Point(368, 76);
+            this.MaxAliveInput.Location = new System.Drawing.Point(363, 95);
             this.MaxAliveInput.Name = "MaxAliveInput";
             this.MaxAliveInput.Size = new System.Drawing.Size(36, 20);
             this.MaxAliveInput.TabIndex = 6;
@@ -623,7 +670,7 @@
             0,
             0,
             131072});
-            this.PlayerHealthInput.Location = new System.Drawing.Point(364, 119);
+            this.PlayerHealthInput.Location = new System.Drawing.Point(359, 138);
             this.PlayerHealthInput.Name = "PlayerHealthInput";
             this.PlayerHealthInput.Size = new System.Drawing.Size(53, 20);
             this.PlayerHealthInput.TabIndex = 7;
@@ -637,7 +684,7 @@
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(238, 121);
+            this.textBox10.Location = new System.Drawing.Point(233, 140);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(139, 13);
@@ -653,7 +700,7 @@
             0,
             0,
             131072});
-            this.EnemiesHealthInput.Location = new System.Drawing.Point(364, 151);
+            this.EnemiesHealthInput.Location = new System.Drawing.Point(359, 170);
             this.EnemiesHealthInput.Name = "EnemiesHealthInput";
             this.EnemiesHealthInput.Size = new System.Drawing.Size(53, 20);
             this.EnemiesHealthInput.TabIndex = 8;
@@ -667,7 +714,7 @@
             // 
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(238, 153);
+            this.textBox11.Location = new System.Drawing.Point(233, 172);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(139, 13);
@@ -686,10 +733,10 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.44172F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.55828F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.91951F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.08049F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(298, 371);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(357, 371);
             this.tableLayoutPanel3.TabIndex = 24;
             this.tableLayoutPanel3.Visible = false;
             // 
@@ -704,28 +751,29 @@
             this.tableLayoutPanel4.Controls.Add(this.textBox18, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.spawnPointIndex, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBox17, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 186);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 204);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.01961F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.98039F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(166, 109);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(166, 114);
             this.tableLayoutPanel4.TabIndex = 10;
             // 
             // conditionStepThreshold
             // 
-            this.conditionStepThreshold.Location = new System.Drawing.Point(122, 54);
+            this.conditionStepThreshold.Location = new System.Drawing.Point(122, 59);
             this.conditionStepThreshold.Name = "conditionStepThreshold";
             this.conditionStepThreshold.Size = new System.Drawing.Size(34, 20);
             this.conditionStepThreshold.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.conditionStepThreshold, "Enemies left before group starts");
             // 
             // textBox19
             // 
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox19.Enabled = false;
             this.textBox19.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox19.Location = new System.Drawing.Point(3, 54);
+            this.textBox19.Location = new System.Drawing.Point(3, 59);
             this.textBox19.Name = "textBox19";
             this.textBox19.ReadOnly = true;
             this.textBox19.Size = new System.Drawing.Size(113, 13);
@@ -735,7 +783,7 @@
             // 
             // conditionStepIndex
             // 
-            this.conditionStepIndex.Location = new System.Drawing.Point(122, 28);
+            this.conditionStepIndex.Location = new System.Drawing.Point(122, 30);
             this.conditionStepIndex.Minimum = new decimal(new int[] {
             1,
             0,
@@ -744,6 +792,7 @@
             this.conditionStepIndex.Name = "conditionStepIndex";
             this.conditionStepIndex.Size = new System.Drawing.Size(34, 20);
             this.conditionStepIndex.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.conditionStepIndex, "Leave this be, unless you know what you are doing");
             this.conditionStepIndex.Value = new decimal(new int[] {
             1,
             0,
@@ -755,7 +804,7 @@
             this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox18.Enabled = false;
             this.textBox18.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox18.Location = new System.Drawing.Point(3, 28);
+            this.textBox18.Location = new System.Drawing.Point(3, 30);
             this.textBox18.Name = "textBox18";
             this.textBox18.ReadOnly = true;
             this.textBox18.Size = new System.Drawing.Size(105, 13);
@@ -774,6 +823,7 @@
             this.spawnPointIndex.Name = "spawnPointIndex";
             this.spawnPointIndex.Size = new System.Drawing.Size(34, 20);
             this.spawnPointIndex.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.spawnPointIndex, "-1 for random spawn");
             this.spawnPointIndex.Value = new decimal(new int[] {
             1,
             0,
@@ -798,17 +848,18 @@
             this.AlwaysAvailableInput.AutoSize = true;
             this.AlwaysAvailableInput.Checked = true;
             this.AlwaysAvailableInput.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AlwaysAvailableInput.Location = new System.Drawing.Point(312, 43);
+            this.AlwaysAvailableInput.Location = new System.Drawing.Point(307, 62);
             this.AlwaysAvailableInput.Name = "AlwaysAvailableInput";
             this.AlwaysAvailableInput.Size = new System.Drawing.Size(105, 17);
             this.AlwaysAvailableInput.TabIndex = 5;
             this.AlwaysAvailableInput.Text = "Always Available";
+            this.toolTip1.SetToolTip(this.AlwaysAvailableInput, "Will be available on every map");
             this.AlwaysAvailableInput.UseVisualStyleBackColor = true;
             // 
             // WaveSelectorsInput
             // 
             this.WaveSelectorsInput.FormattingEnabled = true;
-            this.WaveSelectorsInput.Location = new System.Drawing.Point(574, 79);
+            this.WaveSelectorsInput.Location = new System.Drawing.Point(634, 79);
             this.WaveSelectorsInput.Name = "WaveSelectorsInput";
             this.WaveSelectorsInput.Size = new System.Drawing.Size(129, 529);
             this.WaveSelectorsInput.TabIndex = 9;
@@ -817,7 +868,7 @@
             // 
             this.WaveSelectors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.WaveSelectors.Enabled = false;
-            this.WaveSelectors.Location = new System.Drawing.Point(574, 34);
+            this.WaveSelectors.Location = new System.Drawing.Point(634, 34);
             this.WaveSelectors.Name = "WaveSelectors";
             this.WaveSelectors.ReadOnly = true;
             this.WaveSelectors.Size = new System.Drawing.Size(139, 13);
@@ -827,23 +878,25 @@
             // 
             // NewWaveSelector
             // 
-            this.NewWaveSelector.Location = new System.Drawing.Point(574, 53);
+            this.NewWaveSelector.Location = new System.Drawing.Point(634, 53);
             this.NewWaveSelector.Name = "NewWaveSelector";
             this.NewWaveSelector.Size = new System.Drawing.Size(51, 23);
             this.NewWaveSelector.TabIndex = 9;
             this.NewWaveSelector.TabStop = false;
             this.NewWaveSelector.Text = "New";
+            this.toolTip1.SetToolTip(this.NewWaveSelector, "Add a new wave selector");
             this.NewWaveSelector.UseVisualStyleBackColor = true;
             this.NewWaveSelector.Click += new System.EventHandler(this.NewWaveSelector_Click);
             // 
             // RemoveWave
             // 
-            this.RemoveWave.Location = new System.Drawing.Point(632, 53);
+            this.RemoveWave.Location = new System.Drawing.Point(692, 53);
             this.RemoveWave.Name = "RemoveWave";
             this.RemoveWave.Size = new System.Drawing.Size(71, 23);
             this.RemoveWave.TabIndex = 10;
             this.RemoveWave.TabStop = false;
             this.RemoveWave.Text = "Remove";
+            this.toolTip1.SetToolTip(this.RemoveWave, "Rmove selected");
             this.RemoveWave.UseVisualStyleBackColor = true;
             this.RemoveWave.Click += new System.EventHandler(this.RemoveWave_Click);
             // 
@@ -881,7 +934,7 @@
             // 
             // LoadWaveJson
             // 
-            this.LoadWaveJson.Location = new System.Drawing.Point(938, 12);
+            this.LoadWaveJson.Location = new System.Drawing.Point(945, 24);
             this.LoadWaveJson.Name = "LoadWaveJson";
             this.LoadWaveJson.Size = new System.Drawing.Size(102, 23);
             this.LoadWaveJson.TabIndex = 33;
@@ -917,7 +970,7 @@
             // 
             // RefreshAssets
             // 
-            this.RefreshAssets.Location = new System.Drawing.Point(927, 53);
+            this.RefreshAssets.Location = new System.Drawing.Point(934, 52);
             this.RefreshAssets.Name = "RefreshAssets";
             this.RefreshAssets.Size = new System.Drawing.Size(113, 23);
             this.RefreshAssets.TabIndex = 36;
@@ -928,7 +981,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(469, 269);
+            this.button2.Location = new System.Drawing.Point(542, 272);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 23);
             this.button2.TabIndex = 17;
@@ -947,7 +1000,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(306, 379);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(365, 379);
             this.tableLayoutPanel5.TabIndex = 11;
             // 
             // RemoveGroup
@@ -958,6 +1011,7 @@
             this.RemoveGroup.TabIndex = 13;
             this.RemoveGroup.TabStop = false;
             this.RemoveGroup.Text = "Remove";
+            this.toolTip1.SetToolTip(this.RemoveGroup, "Remove selected group");
             this.RemoveGroup.UseVisualStyleBackColor = true;
             this.RemoveGroup.Click += new System.EventHandler(this.RemoveGroup_Click);
             // 
@@ -965,7 +1019,7 @@
             // 
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox20.Enabled = false;
-            this.textBox20.Location = new System.Drawing.Point(761, 34);
+            this.textBox20.Location = new System.Drawing.Point(770, 63);
             this.textBox20.Name = "textBox20";
             this.textBox20.ReadOnly = true;
             this.textBox20.Size = new System.Drawing.Size(139, 13);
@@ -980,7 +1034,7 @@
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.Location = new System.Drawing.Point(770, 2);
+            this.button3.Location = new System.Drawing.Point(779, 29);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 33);
             this.button3.TabIndex = 43;
@@ -988,11 +1042,42 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(129, 189);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 44;
+            this.button4.TabStop = false;
+            this.button4.Text = "Copy";
+            this.toolTip1.SetToolTip(this.button4, "Copy selected group");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.OnCopyGroup);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wikiToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.menuStrip1.Size = new System.Drawing.Size(1052, 24);
+            this.menuStrip1.TabIndex = 45;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // wikiToolStripMenuItem
+            // 
+            this.wikiToolStripMenuItem.Name = "wikiToolStripMenuItem";
+            this.wikiToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.wikiToolStripMenuItem.Text = "Help";
+            this.wikiToolStripMenuItem.Click += new System.EventHandler(this.OnWikiClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 632);
+            this.ClientSize = new System.Drawing.Size(1052, 634);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox20);
             this.Controls.Add(this.RemoveGroup);
@@ -1029,11 +1114,14 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.GroupList);
             this.Controls.Add(this.FileBTN);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Wave Creator V1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FactionID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxMeleeCount)).EndInit();
@@ -1052,6 +1140,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spawnPointIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1130,6 +1220,12 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.ComboBox factionDesc;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.ComboBox RefType;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem wikiToolStripMenuItem;
     }
 }
 

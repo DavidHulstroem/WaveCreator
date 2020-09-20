@@ -126,10 +126,10 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
         private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox SaveLoc;
+        public System.Windows.Forms.TextBox SaveLoc;
         private System.Windows.Forms.Button FindSaveLoc;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox StreamLoc;
+        public System.Windows.Forms.TextBox StreamLoc;
         private System.Windows.Forms.Button FindStreamLoc;
         private System.Windows.Forms.Button Save;
     }

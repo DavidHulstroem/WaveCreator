@@ -12,21 +12,32 @@ namespace WaveCreator
 {
     public partial class FileLocations : Form
     {
-        public string StreamLocSt;
-        public string SaveLocSt;
 
         public FileLocations()
         {
             InitializeComponent();
+
+
+            if (Form1.saveLocation != "")
+            {
+                SaveLoc.Text = Form1.saveLocation;
+                folderBrowserDialog2.SelectedPath = Form1.saveLocation;
+            }
+            if (Form1.streamingAssetsDirectory != "")
+            {
+                StreamLoc.Text = Form1.streamingAssetsDirectory;
+                folderBrowserDialog1.SelectedPath = Form1.streamingAssetsDirectory;
+            }
 
             Save.DialogResult = DialogResult.OK;
         }
 
         private void FindStreamLoc_Click(object sender, EventArgs e)
         {
+            
+
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                StreamLocSt = folderBrowserDialog1.SelectedPath;
                 StreamLoc.Text = folderBrowserDialog1.SelectedPath;
             }
         }
@@ -35,7 +46,6 @@ namespace WaveCreator
         {
             if (folderBrowserDialog2.ShowDialog() == DialogResult.OK)
             {
-                SaveLocSt = folderBrowserDialog2.SelectedPath;
                 SaveLoc.Text = folderBrowserDialog2.SelectedPath;
             }
         }

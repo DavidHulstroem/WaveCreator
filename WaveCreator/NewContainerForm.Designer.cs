@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.ContainerIdInput = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -43,10 +44,8 @@
             this.ReferenceDD = new System.Windows.Forms.ComboBox();
             this.Save = new System.Windows.Forms.Button();
             this.QuantityInput = new System.Windows.Forms.NumericUpDown();
-            this.referenceInput = new System.Windows.Forms.NumericUpDown();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,23 +66,27 @@
             this.LoadContainerJson = new System.Windows.Forms.Button();
             this.FileBTN = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button4 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.referenceInput)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(12, 12);
+            this.textBox3.Location = new System.Drawing.Point(11, 30);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(139, 13);
@@ -93,16 +96,17 @@
             // 
             // ContainerIdInput
             // 
-            this.ContainerIdInput.Location = new System.Drawing.Point(12, 31);
+            this.ContainerIdInput.Location = new System.Drawing.Point(11, 49);
             this.ContainerIdInput.Name = "ContainerIdInput";
             this.ContainerIdInput.Size = new System.Drawing.Size(100, 20);
             this.ContainerIdInput.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.ContainerIdInput, "Must be unique");
             // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(12, 66);
+            this.textBox1.Location = new System.Drawing.Point(11, 84);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(139, 13);
@@ -112,24 +116,26 @@
             // 
             // DisplayNameInput
             // 
-            this.DisplayNameInput.Location = new System.Drawing.Point(12, 85);
+            this.DisplayNameInput.Location = new System.Drawing.Point(11, 103);
             this.DisplayNameInput.Name = "DisplayNameInput";
             this.DisplayNameInput.Size = new System.Drawing.Size(100, 20);
             this.DisplayNameInput.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.DisplayNameInput, "Almost always empty");
             // 
             // DescriptionInput
             // 
-            this.DescriptionInput.Location = new System.Drawing.Point(134, 31);
+            this.DescriptionInput.Location = new System.Drawing.Point(133, 49);
             this.DescriptionInput.Name = "DescriptionInput";
             this.DescriptionInput.Size = new System.Drawing.Size(169, 65);
             this.DescriptionInput.TabIndex = 2;
             this.DescriptionInput.Text = "";
+            this.toolTip1.SetToolTip(this.DescriptionInput, "Almost always empty");
             // 
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(134, 12);
+            this.textBox2.Location = new System.Drawing.Point(133, 30);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(139, 13);
@@ -139,12 +145,13 @@
             // 
             // NewGroup
             // 
-            this.NewGroup.Location = new System.Drawing.Point(76, 215);
+            this.NewGroup.Location = new System.Drawing.Point(61, 210);
             this.NewGroup.Name = "NewGroup";
             this.NewGroup.Size = new System.Drawing.Size(75, 23);
             this.NewGroup.TabIndex = 18;
             this.NewGroup.TabStop = false;
             this.NewGroup.Text = "New";
+            this.toolTip1.SetToolTip(this.NewGroup, "Add new content");
             this.NewGroup.UseVisualStyleBackColor = true;
             this.NewGroup.Click += new System.EventHandler(this.NewGroup_Click);
             // 
@@ -175,19 +182,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.8103F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.1897F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Save, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.QuantityInput, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.referenceInput, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox7, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Save, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.QuantityInput, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox7, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox6, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox8, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBox8, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
@@ -217,6 +221,7 @@
             this.CategoryDD.Name = "CategoryDD";
             this.CategoryDD.Size = new System.Drawing.Size(91, 21);
             this.CategoryDD.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.CategoryDD, "Type of reference");
             this.CategoryDD.SelectedIndexChanged += new System.EventHandler(this.CategoryDD_SelectedIndexChanged);
             // 
             // ReferenceDD
@@ -229,7 +234,7 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(153, 354);
+            this.Save.Location = new System.Drawing.Point(153, 330);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(296, 42);
             this.Save.TabIndex = 2;
@@ -239,23 +244,17 @@
             // 
             // QuantityInput
             // 
-            this.QuantityInput.Location = new System.Drawing.Point(153, 57);
+            this.QuantityInput.Location = new System.Drawing.Point(153, 33);
             this.QuantityInput.Name = "QuantityInput";
             this.QuantityInput.Size = new System.Drawing.Size(35, 20);
             this.QuantityInput.TabIndex = 1;
-            // 
-            // referenceInput
-            // 
-            this.referenceInput.Location = new System.Drawing.Point(153, 33);
-            this.referenceInput.Name = "referenceInput";
-            this.referenceInput.Size = new System.Drawing.Size(35, 20);
-            this.referenceInput.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.QuantityInput, "Amount of the item, normally set to 1");
             // 
             // textBox7
             // 
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(3, 57);
+            this.textBox7.Location = new System.Drawing.Point(3, 33);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(70, 13);
@@ -275,23 +274,11 @@
             this.textBox5.TabStop = false;
             this.textBox5.Text = "referenceID";
             // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(3, 33);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(70, 13);
-            this.textBox6.TabIndex = 21;
-            this.textBox6.TabStop = false;
-            this.textBox6.Text = "reference";
-            // 
             // textBox8
             // 
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(3, 84);
+            this.textBox8.Location = new System.Drawing.Point(3, 60);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(70, 13);
@@ -307,7 +294,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.CustomValuesBox, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(153, 84);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(153, 60);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14F));
@@ -408,6 +395,7 @@
             this.HolderSlotsDD.Name = "HolderSlotsDD";
             this.HolderSlotsDD.Size = new System.Drawing.Size(98, 21);
             this.HolderSlotsDD.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.HolderSlotsDD, "Choose where the item is holstered, remeber to click save aftewards");
             // 
             // textBox11
             // 
@@ -454,6 +442,7 @@
             this.RemoveCV.TabIndex = 22;
             this.RemoveCV.TabStop = false;
             this.RemoveCV.Text = "Remove";
+            this.toolTip1.SetToolTip(this.RemoveCV, "Remove selected custom value");
             this.RemoveCV.UseVisualStyleBackColor = true;
             this.RemoveCV.Click += new System.EventHandler(this.RemoveCV_Click);
             // 
@@ -465,6 +454,7 @@
             this.NewCustomValue.TabIndex = 20;
             this.NewCustomValue.TabStop = false;
             this.NewCustomValue.Text = "New";
+            this.toolTip1.SetToolTip(this.NewCustomValue, "New custom value");
             this.NewCustomValue.UseVisualStyleBackColor = true;
             this.NewCustomValue.Click += new System.EventHandler(this.NewCustomValue_Click);
             // 
@@ -483,18 +473,19 @@
             // 
             // RemoveContent
             // 
-            this.RemoveContent.Location = new System.Drawing.Point(76, 191);
+            this.RemoveContent.Location = new System.Drawing.Point(61, 186);
             this.RemoveContent.Name = "RemoveContent";
             this.RemoveContent.Size = new System.Drawing.Size(75, 23);
             this.RemoveContent.TabIndex = 21;
             this.RemoveContent.TabStop = false;
             this.RemoveContent.Text = "Remove";
+            this.toolTip1.SetToolTip(this.RemoveContent, "Remove selected content");
             this.RemoveContent.UseVisualStyleBackColor = true;
             this.RemoveContent.Click += new System.EventHandler(this.RemoveContent_Click);
             // 
             // LoadContainerJson
             // 
-            this.LoadContainerJson.Location = new System.Drawing.Point(686, 12);
+            this.LoadContainerJson.Location = new System.Drawing.Point(693, 30);
             this.LoadContainerJson.Name = "LoadContainerJson";
             this.LoadContainerJson.Size = new System.Drawing.Size(102, 23);
             this.LoadContainerJson.TabIndex = 34;
@@ -516,11 +507,42 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(142, 210);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 45;
+            this.button4.TabStop = false;
+            this.button4.Text = "Copy";
+            this.toolTip1.SetToolTip(this.button4, "Copy selected content");
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.OnCopyContent);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 46;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.OnWikiClick);
+            // 
             // NewContainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 670);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.FileBTN);
             this.Controls.Add(this.LoadContainerJson);
             this.Controls.Add(this.RemoveContent);
@@ -534,6 +556,8 @@
             this.Controls.Add(this.DisplayNameInput);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.ContainerIdInput);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "NewContainerForm";
             this.Text = "NewContainerForm";
             this.Load += new System.EventHandler(this.NewContainerForm_Load);
@@ -541,7 +565,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.QuantityInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.referenceInput)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -550,6 +573,8 @@
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -569,11 +594,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.ComboBox ReferenceDD;
         private System.Windows.Forms.NumericUpDown QuantityInput;
-        private System.Windows.Forms.NumericUpDown referenceInput;
         private System.Windows.Forms.ListBox CustomValuesBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button NewCustomValue;
@@ -596,5 +619,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.ComboBox CategoryDD;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

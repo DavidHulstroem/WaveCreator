@@ -176,8 +176,6 @@ namespace WaveCreator
 
             ReferenceDD.SelectedIndex = selectedReference.FindIndex(x => x == selectedContent.referenceID);
 
-            referenceInput.Value = selectedContent.reference;
-
             QuantityInput.Value = selectedContent.quantity;
 
             customValues.Clear();
@@ -231,7 +229,7 @@ namespace WaveCreator
             }
 
             selectedContent.referenceID = selectedReference[ReferenceDD.SelectedIndex];
-            selectedContent.reference = (int)referenceInput.Value;
+            selectedContent.reference = (int)selectedContent.reference;
 
             selectedContent.customValues.Clear();
 
@@ -308,7 +306,7 @@ namespace WaveCreator
 
         private void CategoryDD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int referenceint = 1;
+            int referenceint = 0;
 
             if (selectedContent == null)
                 return;
@@ -316,7 +314,7 @@ namespace WaveCreator
             if (CategoryDD.SelectedIndex == 0)
             {
                 selectedReference = LootTables;
-                referenceint = 0;
+                referenceint = 1;
             }
             if (CategoryDD.SelectedIndex == 1)
             {
@@ -338,7 +336,6 @@ namespace WaveCreator
             ReferenceDD.DataSource = selectedReference;
 
             selectedContent.reference = referenceint;
-            referenceInput.Value = referenceint;
         }
 
         private void FileBTN_Click(object sender, EventArgs e)
@@ -373,6 +370,24 @@ namespace WaveCreator
             json = json.Replace("\"type\"", "\"$type\"");
 
             File.WriteAllText(Form1.saveLocation + @"\Container_" + containerJson.id + ".json", json);
+        }
+
+        private void OnCopyContent(object sender, EventArgs e)
+        {
+            Content copyingContent = contents[ContentList.SelectedIndex];
+
+            var serialized = JsonConvert.SerializeObject(copyingContent);
+            Content copyedContent = JsonConvert.DeserializeObject<Content>(serialized);
+
+            contents.Add(copyedContent);
+
+            ContentList.Items.Add(ContentList.Items.Count);
+
+        }
+
+        private void OnWikiClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/DavidHulstroem/WaveCreator/wiki/Container-Values");
         }
     }
 
