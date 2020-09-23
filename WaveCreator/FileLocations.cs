@@ -28,8 +28,6 @@ namespace WaveCreator
                 StreamLoc.Text = Form1.streamingAssetsDirectory;
                 folderBrowserDialog1.SelectedPath = Form1.streamingAssetsDirectory;
             }
-
-            Save.DialogResult = DialogResult.OK;
         }
 
         private void FindStreamLoc_Click(object sender, EventArgs e)
@@ -38,7 +36,23 @@ namespace WaveCreator
 
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                StreamLoc.Text = folderBrowserDialog1.SelectedPath;
+                if (!folderBrowserDialog1.SelectedPath.Contains("StreamingAssets"))
+                {
+                    DialogResult dialogResult = MessageBox.Show("Selected location might not be your streaming assets, would you like to continue?", "Warining", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        StreamLoc.Text = folderBrowserDialog1.SelectedPath;
+                    } else
+                    {
+                        return;
+                    }
+
+                } else
+                {
+                    StreamLoc.Text = folderBrowserDialog1.SelectedPath;
+                }
+
+                
             }
         }
 
@@ -48,6 +62,38 @@ namespace WaveCreator
             {
                 SaveLoc.Text = folderBrowserDialog2.SelectedPath;
             }
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (SaveLoc.Text != "")
+            {
+                if (!System.IO.Directory.Exists(SaveLoc.Text))
+                {
+                    MessageBox.Show("The selected save location is not valid. Maybe it isn't an existing location?");
+                    return;
+                }
+
+                if (StreamLoc.Text != "")
+                {
+                    if (!StreamLoc.Text.Contains("StreamingAssets"))
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Selected location might not be your streaming assets, would you like to continue?", "Warining", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.No)
+                        {
+                            return;
+                        }
+                    }
+
+                    if (!System.IO.Directory.Exists(StreamLoc.Text))
+                    {
+                        MessageBox.Show("The selected streamingassets location is not valid. Maybe it isn't an existing location?");
+                        return;
+                    }
+
+                    this.DialogResult = DialogResult.OK;
+                }
+            }  
         }
     }
 }

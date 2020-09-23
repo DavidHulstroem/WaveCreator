@@ -197,7 +197,7 @@
             // ContainerDD
             // 
             this.ContainerDD.FormattingEnabled = true;
-            this.ContainerDD.Location = new System.Drawing.Point(141, 59);
+            this.ContainerDD.Location = new System.Drawing.Point(137, 59);
             this.ContainerDD.Name = "ContainerDD";
             this.ContainerDD.Size = new System.Drawing.Size(144, 21);
             this.ContainerDD.TabIndex = 2;
@@ -209,7 +209,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 0);
@@ -249,7 +249,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel7.Controls.Add(this.RefType, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.CreatureDD, 1, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(141, 26);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(137, 26);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -286,7 +286,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.05064F));
             this.tableLayoutPanel6.Controls.Add(this.FactionID, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.factionDesc, 1, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(138, 110);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(134, 110);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
@@ -337,7 +337,7 @@
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(90, 5);
+            this.textBox5.Location = new System.Drawing.Point(86, 5);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(43, 13);
@@ -361,7 +361,7 @@
             // 
             this.FactionOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.FactionOverride.AutoSize = true;
-            this.FactionOverride.Location = new System.Drawing.Point(104, 113);
+            this.FactionOverride.Location = new System.Drawing.Point(100, 113);
             this.FactionOverride.Name = "FactionOverride";
             this.FactionOverride.Size = new System.Drawing.Size(15, 14);
             this.FactionOverride.TabIndex = 5;
@@ -384,7 +384,7 @@
             // 
             this.MaxMeleeOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MaxMeleeOverride.AutoSize = true;
-            this.MaxMeleeOverride.Location = new System.Drawing.Point(104, 142);
+            this.MaxMeleeOverride.Location = new System.Drawing.Point(100, 142);
             this.MaxMeleeOverride.Name = "MaxMeleeOverride";
             this.MaxMeleeOverride.Size = new System.Drawing.Size(15, 14);
             this.MaxMeleeOverride.TabIndex = 7;
@@ -392,7 +392,7 @@
             // 
             // MaxMeleeCount
             // 
-            this.MaxMeleeCount.Location = new System.Drawing.Point(141, 142);
+            this.MaxMeleeCount.Location = new System.Drawing.Point(137, 142);
             this.MaxMeleeCount.Name = "MaxMeleeCount";
             this.MaxMeleeCount.Size = new System.Drawing.Size(35, 20);
             this.MaxMeleeCount.TabIndex = 8;
@@ -416,12 +416,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.05195F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.94805F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel2.Controls.Add(this.textBox16, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox15, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.MinMaxMax, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.MinMaxMin, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(138, 164);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(134, 164);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -434,7 +434,7 @@
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Enabled = false;
             this.textBox16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox16.Location = new System.Drawing.Point(75, 3);
+            this.textBox16.Location = new System.Drawing.Point(73, 3);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(31, 13);
@@ -457,7 +457,7 @@
             // 
             // MinMaxMax
             // 
-            this.MinMaxMax.Location = new System.Drawing.Point(114, 3);
+            this.MinMaxMax.Location = new System.Drawing.Point(112, 3);
             this.MinMaxMax.Minimum = new decimal(new int[] {
             1,
             0,
@@ -475,14 +475,14 @@
             // 
             // MinMaxMin
             // 
-            this.MinMaxMin.Location = new System.Drawing.Point(38, 3);
+            this.MinMaxMin.Location = new System.Drawing.Point(37, 3);
             this.MinMaxMin.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.MinMaxMin.Name = "MinMaxMin";
-            this.MinMaxMin.Size = new System.Drawing.Size(31, 20);
+            this.MinMaxMin.Size = new System.Drawing.Size(30, 20);
             this.MinMaxMin.TabIndex = 30;
             this.toolTip1.SetToolTip(this.MinMaxMin, "Min amount of enemies that can spawn");
             this.MinMaxMin.Value = new decimal(new int[] {
@@ -519,7 +519,7 @@
             // 
             this.BrainOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BrainOverride.AutoSize = true;
-            this.BrainOverride.Location = new System.Drawing.Point(104, 86);
+            this.BrainOverride.Location = new System.Drawing.Point(100, 86);
             this.BrainOverride.Name = "BrainOverride";
             this.BrainOverride.Size = new System.Drawing.Size(15, 14);
             this.BrainOverride.TabIndex = 3;
@@ -529,7 +529,7 @@
             // 
             this.ContainerOverride.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ContainerOverride.AutoSize = true;
-            this.ContainerOverride.Location = new System.Drawing.Point(104, 59);
+            this.ContainerOverride.Location = new System.Drawing.Point(100, 59);
             this.ContainerOverride.Name = "ContainerOverride";
             this.ContainerOverride.Size = new System.Drawing.Size(15, 14);
             this.ContainerOverride.TabIndex = 1;
@@ -538,7 +538,7 @@
             // BrainDD
             // 
             this.BrainDD.FormattingEnabled = true;
-            this.BrainDD.Location = new System.Drawing.Point(141, 86);
+            this.BrainDD.Location = new System.Drawing.Point(137, 86);
             this.BrainDD.Name = "BrainDD";
             this.BrainDD.Size = new System.Drawing.Size(144, 21);
             this.BrainDD.TabIndex = 4;
@@ -1117,7 +1117,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Wave Creator V1.0";
+            this.Text = "Wave Creator V1.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
